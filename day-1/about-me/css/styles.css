@@ -1,6 +1,6 @@
 h1 {
   font-family: "Abril Fatface", serif;
-  color: #50e5bd; /*teal*/
+  color: #50e5bd;
   font-size: 2.5em;
 }
 
@@ -10,12 +10,12 @@ h1#heading {
 
 h2 {
   font-family: "Abril Fatface", serif;
-  color: #50e5bd; /*teal*/
+  color: #50e5bd;
 }
 
 h3 {
   font-family: "Abril Fatface", serif;
-  color: #50e5bd; /*teal*/
+  color: #50e5bd;
 }
 
 h4 {
@@ -26,27 +26,37 @@ h4 {
 h5 {
   font-family: "Crimson Text", sans-serif;
   font-weight: 400;
-  color: #50e5bd; /*teal*/
+  color: #50e5bd;
 }
 
 h6 {
   font-family: "Crimson Text", sans-serif;
   font-weight: 400;
-  color: #50e5bd; /*teal*/
+  color: #50e5bd;
 }
 
 body {
   font-family: "Crimson Text", sans-serif;
-  color: #2d3047; /*dark indigo*/
+  color: #2d3047;
   margin: 2em;
 }
 
 a {
-  color: #e84855; /*red*/
+  color: #e84855;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff9b71;
+}
+
+
+a:active {
+  color: #ff9b71;
 }
 
 hr {
-  border: 1px solid #ff9b71; /*orange*/
+  border: 1px solid #ff9b71;
 }
 
 table.special {

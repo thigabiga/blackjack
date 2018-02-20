@@ -1,0 +1,46 @@
+/* colors #A9E5BB sea foam green, #FCF6B0 banana mania,
+#F7C051 maximum yellow red, #F73F38 coral red, #150E16 licorice */
+
+
+body {
+  max-width: 700px;
+  height: 100%;
+  font-family: "Abril Fatface", serif;
+  color: #150e16;
+  letter-spacing: 5px;
+  padding: 20px;
+  background-color: #a9e5bb;
+  margin: auto;
+}
+
+#content {
+  display: table-cell;
+  width: 500px;
+  background-color: #fcf6b0;
+  padding: 20px;
+}
+
+#sidebar {
+  display: table-cell;
+  width: 200px;
+  vertical-align: top;
+  background-color: #f7c051;
+  padding: 20px;
+}
+
+header {
+  background-color: #f73f38;
+  padding: 20px;
+
+}
+
+nav {
+  padding: 20px;
+
+}
+
+footer {
+  background-color: #f73f38;
+  padding: 20px;
+
+}
