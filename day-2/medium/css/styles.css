@@ -19,6 +19,7 @@ body {
   margin: 100px auto 50px auto;
   background-color: white;
   padding: 10px;
+  text-align: left;
 }
 
 header {
@@ -127,6 +128,11 @@ p.tagline > a, a:visited, a:hover {
   text-decoration: none;
 }
 
+p.caption > a, a:visited, a:hover {
+  color: gray;
+  text-decoration: underline;
+}
+
 p.byline > a, a:visited, a:hover {
   color: #150e16;
   text-decoration: none;
@@ -142,15 +148,16 @@ img.auth_photo {
   width: 75px;
 }
 
+img.centered {
+  width: 500px;
+  display: block;
+  margin: auto;
+}
+
 p.caption {
   font-family: "Ubuntu", Helvetica, sans-serif;
   color: gray;
   font-size: 14px;
   line-height: 10px;
   text-align: center;
-}
-
-p.caption > a, a:visited, a:hover {
-  color: gray;
-  text-decoration: underline;
 }
