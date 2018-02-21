@@ -5,19 +5,32 @@ body {
 
 div#container {
   display: table-cell;
-  height: 100%;
+  height: 80%;
   width: 100%
   top: 0;
   left: 0;
 }
 
-div#leftcolumn {
-  display: table;
-  height: 100%;
-  width: 20%;
+div#top {
+  display: table-cell;
+  height: 10%;
+  width: 100%;
   position: absolute;
   left: 0;
   top: 0;
+  background-color: lime;
+  overflow: auto;
+  margin: 0px;
+  padding: 10px;
+}
+
+div#leftcolumn {
+  display: table-cell;
+  height: 80%;
+  width: 20%;
+  position: absolute;
+  left: 0;
+  top: 10%;
   background-color: #a9e5bb;
   overflow: auto;
   margin: 0px 10px 0px 0px;
@@ -26,10 +39,10 @@ div#leftcolumn {
 
 div#middlecolumn {
   display: table-cell;
-  height: 100%;
+  height: 80%;
   width: 60%;
   position: absolute;
-  top: 0;
+  top: 10%;
   left: 20%;
   right: 20%;
   background-color: beige;
@@ -40,13 +53,26 @@ div#middlecolumn {
 
 div#rightcolumn {
   display: table-cell;
-  height: 100%;
+  height: 80%;
   width: 20%;
   position: absolute;
-  top: 0;
+  top: 10%;
   right: 0;
   background-color: ivory;
   overflow: auto;
   margin: 0px 0px 0px 10px;
+  padding: 10px;
+}
+
+div#bottom {
+  display: table-cell;
+  height: 10%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 90%;
+  background-color: pink;
+  overflow: auto;
+  margin: 0px;
   padding: 10px;
 }
