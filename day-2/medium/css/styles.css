@@ -14,9 +14,17 @@ body {
   margin: auto;
 }
 
+#by_content {
+  max-width: 650px;
+  margin: 100px auto 25px auto;
+  background-color: white;
+  padding: 10px;
+  text-align: left;
+}
+
 .content {
   max-width: 650px;
-  margin: 100px auto 50px auto;
+  margin: auto;
   background-color: white;
   padding: 10px;
   text-align: left;
@@ -41,6 +49,7 @@ h2 {
 
 h3 {
   font-family: "Ubuntu", Helvetica, sans-serif;
+  padding-top: 40px;
 }
 
 h5 {
