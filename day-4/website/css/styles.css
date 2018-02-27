@@ -1,0 +1,195 @@
+/******** colors: #f7b32b saffron, #1a181b eerie black, #f72c25 red pigment, #f9f8f8 (light gray) ********/
+
+/******** text styles ********/
+
+p {
+    color: #1a181b;
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    line-height: 26px;
+    padding-top: 10px;
+  }
+
+h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover, h6 > a:hover {
+    color: #f72c25;
+    text-decoration: none;
+}
+
+h1 > a:visited, h1 > a, h2 > a:visited, h2 > a, h3 > a:visited, h3 > a, h4 > a:visited, h4 > a, h5 > a:visited, h5 > a, h6 > a:visited, h6 > a {
+    color: #1a181b;
+    text-decoration: none;
+}
+
+h1.wide {
+    color: #1a181b;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: #1a181b;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h2.wide {
+    color: #1a181b;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: #1a181b;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+h3 {
+    color: #1a181b;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+h3.wide {
+    color: #1a181b;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h4 {
+    color: #1a181b;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+h4.wide {
+    color: gray;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h6.wide {
+    color: #1a181b;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/******** navigation styles ********/
+
+ .navbar {
+    background-color: white;
+    border-bottom: 1px solid #f9f8f8;
+    width: 100%;
+}
+
+a.nav-link, a.nav-link:hover, a.nav-link:visited, li.nav-item {
+    color: #1a181b;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+button {
+    color: #1a181b;
+    background-color: transparent;
+    border: 1px solid #f7b32b;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+/******** images ********/
+
+img.logo {
+    width: 200px;
+    height: auto;
+}
+
+img.full {
+    height: auto;
+    width: 100%;
+}
+
+img:hover {
+    transform: scale(1.25); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transition: transform .2s;
+    width: 100%; 
+    height: auto; 
+    object-fit: cover;
+}
+
+/******** layout ********/
+
+div.layout {
+    margin: 50px 0px 50px 0px;
+}
+
+div.gray-col {
+    background-color: #f9f8f8;
+    text-align: center;
+}
+
+div.white-col {
+    background-color: white;
+    text-align: left;
+    width: 100%;
+}
+
+div.black-col {
+    background-color: black;
+    text-align: left;
+    height: 400px;
+}
+
+div.black-col > p {
+    color: white;
+}
+
+div.black-col > h3.wide {
+    color: #f7b32b;
+}
+
+div.sm-gray-col {
+    background-color: #f9f8f8;
+    text-align: left;
+    margin: 20px;
+    min-height: 400px;
+    padding: 0px;
+    width: 100%;
+}
+
+div.sm-col-text {
+    padding: 30px 20px 10px 20px;
+}
+
+div.col-text {
+    padding: 30px;
+}
+
+
+
+
+
+
+

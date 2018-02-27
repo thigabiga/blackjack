@@ -1,0 +1,17 @@
+.container {
+  padding: 10px;
+}
+
+header {
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+
+h2 {
+  text-align: center;
+}
+
+footer {
+  padding: 20px;
+}

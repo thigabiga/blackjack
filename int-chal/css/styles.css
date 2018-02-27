@@ -1,0 +1,122 @@
+#triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+  }
+
+  #square {
+    width: 0px;
+    height: 0px;
+    border: 30px solid red;
+  }
+
+  #rectangle {
+    width: 0px;
+    height: 0px;
+    border-top: 30px solid red;
+    border-bottom: 30px solid red;
+    border-left: 50px solid red;
+    border-right: 50px solid red;
+}
+
+
+#oval {
+    width: 0px;
+    height: 0px;
+    border-right: 30px solid red;
+    border-top: 100px solid red;
+    border-radius: 100%;
+}
+
+#circle {
+    width: 0px;
+    height: 0px;
+    border: 30px solid red;
+    border-radius: 180px;
+}
+
+#triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid red;
+}
+
+#triangle-right {
+width: 0;
+height: 0;
+border-top: 50px solid transparent;
+border-bottom: 50px solid transparent;
+border-left: 100px solid red;
+}
+
+#triangle-90 {
+width: 0;
+height: 0;
+border-top: 100px solid red;
+border-left: 100px solid transparent;
+}  
+
+#trapezoid {
+width: 0;
+height: 0;
+border-left: 50px solid transparent;
+border-right: 50px solid red;
+border-top: 50px solid red;
+}
+
+#right-square {
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid red;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+}
+#left-square {
+    width: 0;
+    height: 0;
+    border-top: 100px solid red;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+}
+
+#one-tri {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+    left: 0;
+    position: absolute;
+}
+
+#two-tri {
+    margin-top: 35px;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid red;
+    left: 0;
+    position: absolute;
+}
+
+
+#pac-circle {
+    width: 0px;
+    height: 0px;
+    border: 50px solid red;
+    border-radius: 180px;
+}
+
+#pac-tri {
+    width: 0px;
+    height: 0px;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-right: 100px solid white;
+    margin-top: -50px;
+}
