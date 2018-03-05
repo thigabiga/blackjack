@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Erin Thigpen</title>
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,400i,700,700i|PT+Sans:400,400i,700,700i|PT+Serif:400,400i,700,700i|PT+Sans+Caption:400,700|Roboto+Mono:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i|Plaster|Rubik:400,400i,900,900i|Roboto+Mono:700" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap-4/css/bootstrap.min.css">
@@ -15,8 +15,8 @@
 
     <!--navigation section-->
     <section role="navigation">
-      <nav class="navbar navbar-expand-md navbar-light bg-faded">
-        <a class="navbar-brand" href="#"><img class="logo" src="images/logo-01.png" width="200px;"></a>
+      <nav class="navbar navbar-expand-md navbar-light bg-faded navbar-fixed-top">
+        <a class="navbar-brand" href="#"><h1>{Erin Thigpen}</h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,25 +39,36 @@
     <!--main container-->
     <div class="container-fluid">
 
+      <div class="row no-gutter d-flex justify-content-center" style="background-color: #173456; height: 500px;">
+          <div class="col-md-6 col-sm-12">
+          <p style="font-family: 'Plaster', sans-serif; color: #FF0A57; font-size: 100px;">Hello!</p>
+          </div>
+          <div class="col-md-6 col-sm-12">
+          <p style="font-family: 'Rubik', sans-serif; font-weight: 900; color: #3DBBC9; font-size: 36px; text-transform: uppercase;">My name is Erin.</p>
+          </div>
+      </div>
+
+
       <!--two column no-space layout-->
-      <div class="row">
-        <img class="col-lg-6 col-md-6 col-sm-12 img-fluid" style="width: 100%; height: auto; object-fit: cover; padding: 0px; margin: 0px; filter: grayscale(100%);" src="images/24speed.jpg">
-        <div class="col-lg-6 col-md-6 col-sm-12" style="padding: 0px; margin: 0px;">
-          <div class="d-flex align-items-center" style="text-align: center; padding: 40px; height: 100%;">
-            <div>
-              <h1 class="wide">Coloring book beard mixtape kickstarter</h1>
-              <h4 class="wide">Avocado toast</h4>
-              <p>Bushwick trust fund.</p>
-              <button>Read</button>
-            </div>
-          </div>  
+      <div class="row no-gutter">
+        <div class="col-xs-12 col-sm-6 col-sm-push-6">
+          <img class="large-img" src="images/24speed.jpg">
         </div>
+        <div class="col-xs-12 col-sm-6 col-sm-pull-6">
+          <div class="large-block reverse-padding">
+            <h2><a class="red-on-hover" href="#">This is an {h2} tag</a></h2>
+            <h4>This is an {h4} tag</h4>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa.
+            </p>
+            <button><a href="#">Button</a></button>
+          </div>
+        </div>  
       </div>
 
       <!--sign up bar-->
       <div class="row layout d-flex justify-content-center">
         <div class="col-lg-10 col-md-12 d-flex align-items-center justify-content-center"  style="border: 1px solid #f7b32b; border-radius: 4px; height: 150px; padding: 20px;">
-          <div><h3 class="wide">Sign up for our newsletter!</h3>
+          <div><h3>This is an {h3} tag.</h3>
           <input></div>
         </div>
       </div>
@@ -66,8 +77,8 @@
       <div class="row layout d-flex align-items-center justify-content-center">
         <img class="col-lg-7 col-md-12 col-sm-12 img-fluid" style="height: 100%; width: auto; object-fit: cover; padding: 0px; margin: 0px; filter: grayscale(100%);" src="images/house.jpg">
         <div class="col-lg-3 col-md-12 col-sm-12 col-text">
-          <h1><a href="#">Four dollar toast deep v bitters.</a></h1>
-          <h4 class="wide">Kitsch Retro Fam Four</h4>
+          <h2><a href="#">H2 Title</a></h2>
+          <h4>Kitsch Retro Fam Four</h4>
           <p>Brooklyn pork belly cloud bread, williamsburg meh skateboard cloud bread next level cronut pug kale chips messenger bag brooklyn kogi offal. Kitsch microdosing post-ironic viral migas ennui.</p>
           <button>Read</button>
         </div>
@@ -85,7 +96,7 @@
         </div>
         <div class="col-lg-3 col-md-3 col-sm-12 gray-col" style="margin-left: 20px; margin-right: 20px;">
           <div class="col-text">
-            <h2 class="wide">Coloring book beard mixtape</h2>
+            <h2>Coloring book beard mixtape</h2>
             <p>Retro post-ironic chicharrones ennui lyft.  90's cliche leggings.</p>
             <button>Read</button>
           </div>
@@ -107,50 +118,38 @@
             <a href="https://placeholder.com"><img class="full" src="http://via.placeholder.com/300x150"></a>
           </div>
           <div class="col-lg-4 col-md-12 col-text" style="margin-left: 10px;">
-            <h1>Deep v williamsburg</h1>   
+            <h2>Deep v williamsburg</h2>   
             <p>Edison bulb af, la croix aesthetic freegan.</p>       
           </div>
         </div>
-        
-      <!--two column layout text only-->
-      <div class="row layout d-flex justify-content-center">
-        <div class="col-lg-4 col-md-12 black-col">
-          <h3 class="wide">mixtape jianbing</h3>
-          <p>Wolf umami keffiyeh.</p>
-        </div>
-        <div class="col-lg-7 col-md-12">
-          <h1 class="wide">Coloring book beard mixtape kickstarter</h1>   
-          <p>I've got new rules, I count them.</p>       
-        </div>
-      </div>
 
       <!--four column layout-->
       <div class="row layout d-flex justify-content-center">
         <div class="col-lg-2 col-md-5 col-sm-10 sm-gray-col">
           <a href="https://placeholder.com"><img class="full" src="http://via.placeholder.com/400x300"></a>
           <div class="sm-col-text">
-            <h6 class="wide">Kitsch Retro Fam Four</h6>
+            <h6>Kitsch Retro Fam Four</h6>
             <h3>Meditation Stumptown Cliche</h3>
           </div>
         </div>
         <div class="col-lg-2 col-md-5 col-sm-10 sm-gray-col">
           <a href="https://placeholder.com"><img class="full" src="http://via.placeholder.com/400x300"></a>
           <div class="sm-col-text">
-            <h6 class="wide">Kitsch Retro Fam Four</h6>
+            <h6>Kitsch Retro Fam Four</h6>
             <h3>Meditation Stumptown Cliche</h3>
           </div>
         </div>
         <div class="col-lg-2 col-md-5 col-sm-10 sm-gray-col">
           <a href="https://placeholder.com"><img class="full" src="http://via.placeholder.com/400x300"></a>
           <div class="sm-col-text">
-            <h6 class="wide">Kitsch Retro Fam Four</h6>
+            <h6>Kitsch Retro Fam Four</h6>
             <h3>Meditation Stumptown Cliche</h3>
           </div>
         </div>
         <div class="col-lg-2 col-md-5 col-sm-10 sm-gray-col">
           <a href="https://placeholder.com"><img class="full" src="http://via.placeholder.com/400x300"></a>
           <div class="sm-col-text">
-            <h6 class="wide">Kitsch Retro Fam Four</h6>
+            <h6>Kitsch Retro Fam Four</h6>
             <h3>Meditation Stumptown Cliche</h3>
           </div>
         </div>
