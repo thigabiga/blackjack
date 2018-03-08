@@ -8,25 +8,30 @@
             document.body.appendChild(myOverlay);
 
             // Overlay Styles
-            myOverlay.style.position = "absolute";
-            myOverlay.style.top = 0;
+            //myOverlay.style.position = "absolute";
+            //myOverlay.style.top = 0;
             myOverlay.style.backgroundColor = 'rgba(0,0,0,.7)';
-            myOverlay.style.cursor = "pointer";
+            //myOverlay.style.cursor = "pointer";
             myOverlay.style.width = window.innerWidth + 'px';
             myOverlay.style.height = window.innerHeight + 'px';
             myOverlay.style.top = window.pageYOffset + 'px';
             myOverlay.style.left = window.pageXOffset + 'px';
 
             // Add Image
+
+            var newCol = document.createElement("div");
+            newCol.class = "col-md-12 col-sm-6 d-flex align-items-center";
+            document.body.appendChild(newCol);
+
             var srcArray = e.target.src.split("/");
             lastIndex = srcArray.length - 1;
             var imageSrc = "images/" + srcArray[lastIndex];
             var largeImage = document.createElement('img');
-            largeImage.id = 'largeImage';
+            largeImage.id = 'image-overlay';
             largeImage.src = imageSrc;
-            largeImage.style.display = 'block';
-            largeImage.style.position = 'absolute';
-            myOverlay.appendChild(largeImage);
+            // largeImage.style.display = 'block';
+            // largeImage.style.position = 'absolute';
+            newCol.appendChild(largeImage);
 
             largeImage.addEventListener('load', function () {
                 if (this.height > window.innerHeight) {
