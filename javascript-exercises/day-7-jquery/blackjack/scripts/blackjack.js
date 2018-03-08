@@ -30,9 +30,7 @@ Hand.prototype.getPoints = function() {
 }
 
 Hand.prototype.bust = function() {
-    if (this.prototype.getPoints > 21) {
-        return true;
-    };
+    return this.getPoints() > 21;
 };
 
 function Deck() {
@@ -84,85 +82,72 @@ function render(cardURL, hand) {
     }).appendTo($(hand));
 };
 
-function dealMe(deal, dealer, player, deck, stand, wins) {
-    $("#deal-button").click(function() {
-        // deal two cards each to the player and dealer if haven't already
-        if (player.length == 0) {
-            // deal the dealer first card face down
-            dealer.addCard(deck.draw());
-            $("<img>", {
-                "src": "images/blue_back.jpg",
-                "class": "dealer-temp-card"
-            }).appendTo($("#dealer-hand"));
+function dealMe(dealer, player, deck) {
+    // deal two cards each to the player and dealer if haven't already
+    // deal the dealer first card face down
+    dealer.addCard(deck.draw());
+    $("<img>", {
+        "src": "images/blue_back.jpg",
+        "class": "dealer-temp-card"
+    }).appendTo($("#dealer-hand"));
 
-            let dealerCard2 = deck.draw();
-            dealer.addCard(dealerCard2);
-            render(dealerCard2.getURL(), "#dealer-hand");
+    let dealerCard2 = deck.draw();
+    dealer.addCard(dealerCard2);
+    render(dealerCard2.getURL(), "#dealer-hand");
 
-            let playerCard1 = deck.draw();
-            player.addCard(playerCard1);
-            render(playerCard1.getURL(), "#player-hand");
+    let playerCard1 = deck.draw();
+    player.addCard(playerCard1);
+    render(playerCard1.getURL(), "#player-hand");
 
-            let playerCard2 = deck.draw();
-            player.addCard(playerCard2);
-            render(playerCard2.getURL(), "#player-hand");
+    let playerCard2 = deck.draw();
+    player.addCard(playerCard2);
+    render(playerCard2.getURL(), "#player-hand");
 
-            // display player points
-            $("#player-points").append(player.getPoints());
-            };
-
-            return player.bust();
-
-    });
+    // display player points
+    $("#player-points").append(player.getPoints());
 };
 
-function hitMe(deal, dealer, player, deck, stand, wins) {
-    $("#hit-button").click(function() {
-        // deal one card to the player when they click the "hit me" button
-        if (deal == true && player.bust() == false && stand == false) {
-            let playerCard1 = deck.draw();
-            player.addCard(playerCard1);
-            render(playerCard1.getURL(), "#player-hand");
-            $("#player-points").empty().append(player.getPoints());
-            return player.bust();
-        };
-    });
+function hitMe(player, deck) {
+    // deal one card to the player when they click the "hit me" button
+    let playerCard1 = deck.draw();
+    player.addCard(playerCard1);
+    render(playerCard1.getURL(), "#player-hand");
+    $("#player-points").empty().append(player.getPoints());
 };
 
-function end(deal, dealer, player, deck, stand, wins) {
-    if (deal == true && stand == true) {
-        $("#deal-button").empty().append("Restart");
-        // flip dealer hole card
-        if (dealer.length > 0) {
-            let newURL = dealer.cards[0].getURL();
-            $(".dealer-temp-card").attr("src", newURL);
-        };
-        $("#player-points").empty().append(player.getPoints());
-        $("#dealer-points").append(dealer.getPoints());
-        if ((dealer.getPoints() > 21 && player.getPoints() > 21) || (dealer.getPoints() == 21 && player.getPoints() == 21)) {
-            $("#messages").empty().append("It's a draw.");
-        } else if (player.getPoints() == 21 || (dealer.getPoints() > 21 && player.getPoints() < 21) || (dealer.getPoints() < 21 && player.getPoints() < 21 && player.getPoints() > dealer.getPoints())) {
-            wins++;
-            $("#messages").empty().append("Player wins.");
-        } else if (dealer.getPoints() == 21 || (player.getPoints() > 21 && dealer.getPoints() < 21) || (player.getPoints() < 21 && dealer.getPoints() < 21 && dealer.getPoints() > player.getPoints())) {
-            $("#messages").empty().append("Dealer wins.");
-        };
-        $("#wins-button").empty().append(wins);
-        return wins;
+function stay(dealer, deck) {
+    // deal cards to the dealer until dealer points reach 17
+    while (dealer.getPoints() < 17) {
+        let dealerCard2 = deck.draw();
+        dealer.addCard(dealerCard2);
+        render(dealerCard2.getURL(), "#dealer-hand");
     };
-};
-
-function stay(deal, dealer, player, deck, stand, wins) {
-    $("#stand-button").click(function() {
-        // deal cards to the dealer until dealer points reach 17
-        while (dealer.getPoints() < 17) {
-            let dealerCard2 = deck.draw();
-            dealer.addCard(dealerCard2);
-            render(dealerCard2.getURL(), "#dealer-hand");
-        };
-        return true;
-    });
 }; 
+
+function end(dealer, player, wins) {
+
+    $("#deal-button").empty().append("Restart");
+
+    // flip dealer hole card
+    let newURL = dealer.cards[0].getURL();
+    $(".dealer-temp-card").attr("src", newURL);
+
+    $("#player-points").empty().append(player.getPoints());
+    $("#dealer-points").append(dealer.getPoints());
+
+    if ((dealer.bust() && player.bust()) || (dealer.getPoints() == 21 && player.getPoints() == 21)) {
+        $("#messages").empty().append("It's a draw.");
+    } else if (player.getPoints() == 21 || (dealer.bust() && player.getPoints() < 21) || (dealer.getPoints() < 21 && player.getPoints() < 21 && player.getPoints() > dealer.getPoints())) {
+        wins++;
+        $("#messages").empty().append("Player wins.");
+    } else if (dealer.getPoints() == 21 || (player.bust() && dealer.getPoints() < 21) || (player.getPoints() < 21 && dealer.getPoints() < 21 && dealer.getPoints() > player.getPoints())) {
+        $("#messages").empty().append("Dealer wins.");
+    };
+
+    $("#wins-button").empty().append(wins);
+
+    return wins;
+};
 
 function playBlackjack() {
 
@@ -175,25 +160,45 @@ function playBlackjack() {
     var stand = false;
     var deal = false;
     var wins = 0;
-    var bust = false;
+    var endGame = false;
 
-    dealMe(deal, dealer, player, deck, stand, wins);
-    deal = true;
-    hitMe(deal, dealer, player, deck, stand, wins);
-    stay(deal, dealer, player, deck, stand, wins);
-    stand = true;
-    wins = end(deal, dealer, player, deck, stand, wins);
+    $("#deal-button").click(function() {
+        if (deal == false && endGame == false) {
+            dealMe(dealer, player, deck);
+            deal = true;
+            if (player.bust()) {
+                wins = end(dealer, player, wins);
+                endGame = true;
+            };
+        } else if (endGame == true) {
+            clearTable();
+            stand = false;
+            deal = false;
+            endGame = false;
+            dealer = new Hand();
+            player = new Hand();
+        };
+    });
 
-    $("#restart-button").click(function() {
-        clearTable();
-        stand = false;
-        deal = false;
-        bet = 0;
-        dealer = new Hand();
-        player = new Hand();
+    $("#hit-button").click(function() {
+        if (deal == true && player.bust() == false && stand == false) {
+            hitMe(player, deck);
+            if (player.bust() == true) {
+                wins = end(dealer, player, wins);
+                endGame = true;
+            };
+        };
+    });
+
+    $("#stand-button").click(function() {
+        if (deal == true) {
+            stay(dealer, deck);
+            stand = true;
+            wins = end(dealer, player, wins);
+            endGame = true;
+        };
     });
 };
-
 
 
 playBlackjack();
