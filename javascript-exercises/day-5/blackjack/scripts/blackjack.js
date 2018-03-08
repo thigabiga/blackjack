@@ -5,15 +5,18 @@ function getRandomNumber(min, max) {
 
 // retreive and remove a random card object from the deck array and return it
 function dealCard(deck) {
+    let dec = Math.random();
+    let index = Math.floor(dec )
     let index = getRandomNumber(0, deck.length);
     let myCard = deck.splice(index, 1);
+    console.log(index);
+    console.log(deck[index]);
     return myCard[0];
 };
 
 // find the name of a card image and return the filepath
 function findImage(card) {
-    let cardString = "images/".concat(card.point.toString(), card.suit.slice(0, 1).toUpperCase(), ".jpg")
-    return cardString;
+    return "images/".concat(card[0].point.toString(), card[0].suit.slice(0, 1).toUpperCase(), ".jpg")
 };
 
 // calculate the points in a hand and return it
@@ -25,39 +28,59 @@ function calcPoints(hand) {
     return sum;
 };
 
-// deal and display a card to the player
-function dealPlayer(hand, deck) {
-    let container = document.getElementById("player-hand");
+function showCard(player = "player", card, hand) {
     let cardIMG = document.createElement("IMG");
-    let card = dealCard(deck);
-    hand.push(card);
     cardIMG.setAttribute("src", findImage(card));
-    cardIMG.setAttribute("class", "player-card");
-    container.appendChild(cardIMG);
+    cardIMG.setAttribute("class", "card");
+    if (player == "dealer") {
+        document.getElementById("dealer-hand").appendChild(cardIMG);
+    } else {
+        document.getElementById("player-hand").appendChild(cardIMG);
+    };
+};
+
+// deal and display a card to the player
+// function dealPlayer(hand, deck) {
+//     let container = document.getElementById("player-hand");
+//     let cardIMG = document.createElement("IMG");
+//     let card = dealCard(deck);
+//     hand.push(card);
+//     cardIMG.setAttribute("src", findImage(card));
+//     cardIMG.setAttribute("class", "player-card");
+//     container.appendChild(cardIMG);
+// };
+
+function replaceBack(hand) {
+    let replacementCard = hand[0];
+    let cardIMG = document.createElement("IMG");
+    cardIMG.setAttribute("src", findImage(replacementCard));
+    cardIMG.setAttribute("class", "card");
+    let container = document.getElementById("dealer-hand");
+    let cardBack = document.getElementById("dealer-temp-card")
+    document.getElementById("dealer-temp-card");
+    container.replaceChild(replacementCard,cardBack);
 };
 
 // deal and display the back of a card to the dealer
-function dealDealer(hand, deck) {
+function dealBack(hand) {
     let container = document.getElementById("dealer-hand");
     let cardIMG = document.createElement("IMG");
-    let card = dealCard(deck);
-    hand.push(card);
     cardIMG.setAttribute("src", "images/blue_back.jpg");
-    cardIMG.setAttribute("class", "dealer-temp-card");
+    cardIMG.setAttribute("id", "dealer-temp-card");
     container.appendChild(cardIMG);
 };
 
 // show the dealer hand
-function showCard(card, hand) {
-    let container = document.getElementById("dealer-hand");
-    let children = document.getElementsByClassName("dealer-temp-card");
-    let cardIMG = document.createElement("IMG");
-    cardIMG.setAttribute("src", findImage(card));
-    cardIMG.setAttribute("class", "dealer-card");
-    console.log(cardIMG);
-    console.log(children[0]);
-    container.replaceChild(cardIMG, children[0]);
-};
+// function showCard(card, hand) {
+//     let container = document.getElementById("dealer-hand");
+//     let children = document.getElementsByClassName("dealer-temp-card");
+//     let cardIMG = document.createElement("IMG");
+//     cardIMG.setAttribute("src", findImage(card));
+//     cardIMG.setAttribute("class", "dealer-card");
+//     console.log(cardIMG);
+//     console.log(children[0]);
+//     container.replaceChild(cardIMG, children[0]);
+// };
 
 function clearTable() {
     let container1 = document.getElementById("dealer-hand");
@@ -113,13 +136,19 @@ function playBlackjack() {
             for (i = 0; i < 2; i++) {
                 let playerCard = dealCard(deck);
                 playerHand.push(playerCard);
+                showCard(playerCard, playerHand);
                 // dealPlayer(playerHand, deck);
             };
-            for (i = 0; i < 2; i++) {
-                let dealerCard = dealCard(deck);
-                dealerHand.push(dealerCard);
-                // dealDealer(dealerHand, deck);
-            };
+
+            let dealerCard1 = dealCard(deck);
+            dealerHand.push(dealerCard1);
+            dealBack(dealerHand);
+
+            let dealerCard2 = dealCard(deck);
+            dealerHand.push(dealerCard2);
+            showCard("dealer", dealerCard2, dealerHand);
+            // dealDealer(dealerHand, deck);
+
             document.getElementById("player-points").innerHTML = calcPoints(playerHand);
             deal = true;
         };
@@ -130,6 +159,7 @@ function playBlackjack() {
         if (deal == true && calcPoints(playerHand) < 21 && stand == false) {
             let playerCard = dealCard(deck);
             playerHand.push(playerCard);
+            showCard(playerCard, playerHand);
             document.getElementById("player-points").innerHTML = calcPoints(playerHand);
         };
     });
@@ -139,13 +169,12 @@ function playBlackjack() {
         while (calcPoints(dealerHand) < 17) {
             let dealerCard = dealCard(deck);
             dealerHand.push(dealerCard);
+            showCard(dealerCard, dealerHand);
         };
 
         setTimeout(dealerHand.forEach(function(e) {
             showCard(e, dealerHand);
         }), 10000);
-        
-        setTimeout(printPoints(playerHand, dealerHand), 20000);
 
         document.getElementById("player-points").innerHTML = calcPoints(playerHand);
         document.getElementById("dealer-points").innerHTML = calcPoints(dealerHand);
