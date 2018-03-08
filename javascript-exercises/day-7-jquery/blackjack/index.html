@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Blackjack Game</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500" rel="stylesheet">
+
+    </head>
+
+    <body>
+        
+        <div id="table">
+            <div id="lets-play">Play Blackjack!</div>
+
+            <div id="messages"></div>
+                
+                <label>Dealer: </label>
+                
+                <label id="dealer-points" class="points"></label>
+                
+                <div id="dealer-hand" class="hand">
+                
+                </div>
+                
+                <label>Player: </label>
+                
+                <label id="player-points" class="points"></label>
+                
+                <div id="player-hand" class="hand">
+                
+                </div>
+                
+                <div class="buttons">
+                
+                <button id="deal-button">Play</button>
+                
+                <button id="hit-button">Hit Me</button>
+                
+                <button id="stand-button">Stay</button>
+
+                <span>Wins: <span id="wins-button"></span></span>
+                
+            </div>
+                
+        </div>
+        <script   src="http://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+
+        <script src="scripts/blackjack.js" async></script>
+
+    </body>
+
+</html>
