@@ -1,0 +1,1 @@
+Simple blackjack card game built with jQuery, Bootstrap, JavaScript, HTML, and CSS. Run index.html to start.
