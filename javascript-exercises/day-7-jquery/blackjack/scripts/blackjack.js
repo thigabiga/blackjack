@@ -64,6 +64,15 @@ Deck.prototype.shuffle = function() {
         tempArray.splice(roll, 1);
     }
     this.cards = newArray;
+}
+
+Deck.prototype.restock = function () {
+    if (this.cards.length == 1) {
+        this.createDeck();
+        this.shuffle();
+    } else {
+        console.log("not empty");
+    };
 };
 
 function clearTable() {
@@ -91,17 +100,25 @@ function dealMe(dealer, player, deck) {
         "class": "dealer-temp-card"
     }).appendTo($("#dealer-hand"));
 
+    deck.restock();
+
     let dealerCard2 = deck.draw();
     dealer.addCard(dealerCard2);
     render(dealerCard2.getURL(), "#dealer-hand");
+
+    deck.restock();
 
     let playerCard1 = deck.draw();
     player.addCard(playerCard1);
     render(playerCard1.getURL(), "#player-hand");
 
+    deck.restock();
+
     let playerCard2 = deck.draw();
     player.addCard(playerCard2);
     render(playerCard2.getURL(), "#player-hand");
+
+    deck.restock();
 
     // display player points
     $("#player-points").append(player.getPoints());
@@ -113,6 +130,7 @@ function hitMe(player, deck) {
     player.addCard(playerCard1);
     render(playerCard1.getURL(), "#player-hand");
     $("#player-points").empty().append(player.getPoints());
+    deck.restock();
 };
 
 function stay(dealer, deck) {
@@ -121,6 +139,7 @@ function stay(dealer, deck) {
         let dealerCard2 = deck.draw();
         dealer.addCard(dealerCard2);
         render(dealerCard2.getURL(), "#dealer-hand");
+        deck.restock();
     };
 }; 
 
@@ -184,6 +203,7 @@ function playBlackjack() {
         if (deal == true && player.bust() == false && stand == false) {
             hitMe(player, deck);
             if (player.bust() == true) {
+                stand = true;
                 wins = end(dealer, player, wins);
                 endGame = true;
             };
@@ -191,7 +211,7 @@ function playBlackjack() {
     });
 
     $("#stand-button").click(function() {
-        if (deal == true) {
+        if (deal == true && stand == false) {
             stay(dealer, deck);
             stand = true;
             wins = end(dealer, player, wins);
