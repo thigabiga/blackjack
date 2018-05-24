@@ -1,19 +1,27 @@
-# blackjack
+Blackjack
+======
 
-# about
 Simple blackjack card game. Puts into practice: object-oriented programming, dom manipulation (originally written using JavaScript, then refactored using jQuery).
 
-# run
-download the files and run index.html to start up the game.
+---
 
-# built with
+## Run
+Open index.html in a browser to start up the game.
+
+---
+
+## Technologies Used
 *jQuery
 *Bootstrap
 *JavaScript
 *HTML
 *CSS
 
-# author
+---
+
+## By
 Erin Thigpen
 
-# see the demo video at erinthigpen.com
+---
+
+## See the live demo video at erinthigpen.com
