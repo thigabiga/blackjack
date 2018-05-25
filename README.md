@@ -11,11 +11,11 @@ Open index.html in a browser to start up the game.
 ---
 
 ## Technologies Used
-*jQuery
-*Bootstrap
-*JavaScript
-*HTML
-*CSS
+* jQuery
+* Bootstrap
+* JavaScript
+* HTML
+* CSS
 
 ---
 
